@@ -26,6 +26,14 @@ while game_is_on:
 
     car_manager.move_cars()
 
+    for car in car_manager.cars:
+        if player.distance(car) < 20:
+            game_is_on = False
+
+    if player.is_at_finish_line():
+        player.go_to_start()
+        car_manager.increase_speed()
+
     loop_counter += 1
 
 screen.exitonclick()
